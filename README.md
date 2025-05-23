@@ -76,12 +76,12 @@ dev.off() #Switch off panel - resets effectively
 ```
 
 ### Week 5 Figure 1
-![Week 5 Figure 1](Figures\Week5\Figure1.png)
+![Week 5 Figure 1](https://github.com/RebelliousKiwi04/Genome-Sci-Portfolio/blob/master/Figures/Week5/Figure1.png)
 
 Description here
 
 ### Week 5 Figure 2
-![Week 5 Figure 2](Figures\Week5\Figure2.png)
+![Week 5 Figure 2](https://github.com/RebelliousKiwi04/Genome-Sci-Portfolio/blob/master/Figures/Week5/Figure2.png)
 
 Description here
 
@@ -128,7 +128,7 @@ plot.phylo(portfolio.tree, show.node.label = TRUE, tip.color="orange", node.colo
 ```
 
 ### Week 6 Figure 1
-![Week 6 Figure 1](Figures\Week6\Figure1.png)
+![Week 6 Figure 1](https://github.com/RebelliousKiwi04/Genome-Sci-Portfolio/blob/master/Figures/Week6/Figure1.png)
 
 Description here
 
@@ -195,12 +195,12 @@ upset(cutDataFileUpSetTaxa, order.by = "freq", decreasing = TRUE,sets = setOrder
 ```
 
 ### Week 9 Figure 1
-![Week 9 Figure 1](Figures\Week9\Figure1.png)
+![Week 9 Figure 1](https://github.com/RebelliousKiwi04/Genome-Sci-Portfolio/blob/master/Figures/Week9/Figure1.png)
 
 Description
 
 ### Week 9 Figure 2
-![Week 9 Figure 2](Figures\Week9\Figure2.png)
+![Week 9 Figure 2](https://github.com/RebelliousKiwi04/Genome-Sci-Portfolio/blob/master/Figures/Week9/Figure2.png)
 
 Description
 
@@ -239,17 +239,17 @@ plot_bar(portfolio.top100, x="env_local_scale", fill="Genus") +facet_wrap(~env_b
 ```
 
 ### Week 10 Figure 1
-![Week 10 Figure 1](Figures\Week10\Figure1.png)
+![Week 10 Figure 1](https://github.com/RebelliousKiwi04/Genome-Sci-Portfolio/blob/master/Figures/Week10/Figure1.png)
 
 Descrition
 
 ### Week 10 Figure 1
-![Week 10 Figure 2](Figures\Week10\Figure2.png)
+![Week 10 Figure 2](https://github.com/RebelliousKiwi04/Genome-Sci-Portfolio/blob/master/Figures/Week10/Figure2.png)
 
 Description
 
 ### Week 10 Figure 1
-![Week 10 Figure 3](Figures\Week10\Figure3.png)
+![Week 10 Figure 3](https://github.com/RebelliousKiwi04/Genome-Sci-Portfolio/blob/master/Figures/Week10/Figure3.png)
 
 Description
 
