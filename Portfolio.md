@@ -44,4 +44,46 @@ Description text here
 Description text here
 
 ## Week 5 Portfolio
+*Question is to find a method to visualise read depth to determind if there is sufficient depth across the genome and note*
+
+No shell script is required - depth text files were acquired from the lab itself
+
+**R Script Code**
+
+```R
+#Read Depth information into R, and label columns 
+kwazulu.depth <- read.table('kwazulu_depth.txt')
+colnames(kwazulu.depth) <- c("Contig Name", "Contig Position", "Depth")
+
+montana.depth <- read.table('montana_depth.txt')
+colnames(montana.depth) <- c("Contig Name", "Contig Position", "Depth")
+
+#Want to get mean depth - gives us a very early indication - Figure 1
+mean(kwazulu.depth$Depth)
+mean(montana.depth$Depth)
+
+
+par(mfrow=c(1,2)) #Makes it possible to go dual panel
+
+hist(montana.depth$Depth, col="powderblue", xlab="Montana Sequence Depth", main="Histogram of Montana sequence depth")
+
+hist(kwazulu.depth$Depth, col="palegreen3", xlab ="Kwazulu-Natal Sequence Depth", main="Histogram of Kwazulu-Natal sequence depth") 
+
+dev.off() #Switch off panel - resets effectively
+
+#The figure generated from the code here is our figure 2 for Week 5
+
+```
+
+## Week 5 Figure 1
+![Week 5 Figure 1](Figures\Week5\Figure1.png)
+
+Description here
+
+## Week 5 Figure 2
+![Week 5 Figure 2](Figures\Week5\Figure2.png)
+
+Description here
+
+
 
