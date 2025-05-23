@@ -34,12 +34,12 @@ plot(sort(montanaData$'gc content'), sort(montanaData$quality), ty="l", col="pur
 ```
 
 ### Week 4 Figure 1
-![Week 4 Figure 1](Figures\Week4\Figure1.png)
+![Week 4 Figure 1](https://github.com/RebelliousKiwi04/Genome-Sci-Portfolio/blob/master/Figures/Week4/Figure1.png)
 
 Description text here
 
 ### Week 4 Figure 2
-![Week 4 Figure 2](Figures\Week4\Figure2.png)
+![Week 4 Figure 2](https://github.com/RebelliousKiwi04/Genome-Sci-Portfolio/blob/master/Figures/Week4/Figure2.png)
 
 Description text here
 
