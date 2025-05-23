@@ -197,8 +197,63 @@ upset(cutDataFileUpSetTaxa, order.by = "freq", decreasing = TRUE,sets = setOrder
 ### Week 9 Figure 1
 ![Week 9 Figure 1](Figures\Week9\Figure1.png)
 
+Description
 
 ### Week 9 Figure 2
 ![Week 9 Figure 2](Figures\Week9\Figure2.png)
 
+Description
 
+## Week 10 Portfoliio
+*Week 10 again has 2 parts, working with the portfolioPhy phyloseq object we made at the end of the lab, making a new phyloseq object subsetted at the taxonomic level of kingdom, containing only Bacteria*
+> Part A involves plotting alpha diversity values with ``Sample`` on the x axis, colouring by ``env_broad_scale`` with the ``Shannon`` diversity measure. And a second plot, plotting the values for ``env_local_scale`` on the x-axis colouring by ``env_broad_scale`` with both the ``Shannon`` and ``Simpson`` diversity measures.
+> Part B involves plotting an single barplot, according to the following
+- Make a new object of the top 100 taxa
+- Transform the sample conts to a fraction incorporating the code ``function(OTU OTU/sum(OTU))
+- Prune the taxa
+- Plot the barplot by ``env_local_scale`` on the x-axis with colouring by ``Genus``~and ``facet_wrap`` on ``env_broad_scale``
+
+There is no shell script for this week's portfolio - all R based
+
+**R Script code**
+```R
+#Create new subsetted phyloseq object
+portfolio.bac <- subset_taxa(portfolioPhy, Kingdom=="Bacteria")
+
+#Part A First graph - Figure 1
+plot_richness(portfolio.bac, x="Sample", measures=(c("Shannon")), color="env_broad_scale")
+
+#Part A second graph - Figure 2
+plot_richness(portfolio.bac, x="env_local_scale", measures=c("Shannon", "Simpson"), color="env_broad_scale")
+
+#Part B
+#Get top 100 taxa in descending order
+portfolioTop100 <- names(sort(taxa_sums(portfolio.bac), decreasing=TRUE))[1:100]
+#Transform by function
+portfolio.top100 <-transform_sample_counts(portfolio.bac, function(OTU) OTU/sum(OTU))
+#Prune
+portfolio.top100 <-prune_taxa(portfolioTop100, portfolio.top100)
+#Plot barplot - Figure 3
+plot_bar(portfolio.top100, x="env_local_scale", fill="Genus") +facet_wrap(~env_broad_scale, scales="free_x")
+
+```
+
+### Week 10 Figure 1
+![Week 10 Figure 1](Figures\Week10\Figure1.png)
+
+Descrition
+
+### Week 10 Figure 1
+![Week 10 Figure 2](Figures\Week10\Figure2.png)
+
+Description
+
+### Week 10 Figure 1
+![Week 10 Figure 3](Figures\Week10\Figure3.png)
+
+Description
+
+
+## Week 11 Portfolio
+
+IN PROGRESS
