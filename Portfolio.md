@@ -75,15 +75,130 @@ dev.off() #Switch off panel - resets effectively
 
 ```
 
-## Week 5 Figure 1
+### Week 5 Figure 1
 ![Week 5 Figure 1](Figures\Week5\Figure1.png)
 
 Description here
 
-## Week 5 Figure 2
+### Week 5 Figure 2
 ![Week 5 Figure 2](Figures\Week5\Figure2.png)
 
 Description here
 
+
+## Week 6 Portfolio
+*Question is to use a new multifasta, align these new sequences, infer a phylogeny, assess the amount of certainty by performing bootstraps on the phylogeny, and plot the phylogeny with boostrapped values appearing on it*
+
+Chose to do 1000 bootstrap cycles - as that was the number most often mentioned as the optimum for stable and accurate distribution
+
+**Shell Script Code**
+
+```console
+#Get the multifasta
+wget https://pjbiggs.github.io/Massey203311/Week6/data/covid_samples.fasta.gz
+
+#Unzip it
+gunzip covid_samples.fasta.gz
+
+#Merge new file with our masked sequences
+cat covid_samples.fasta montana-mask.fasta kwazulu-mask.fasta > all_genomes.fasta
+
+#Perform the alignment
+mafft --auto --reorder all_genomes.fasta >all_genomes.aln
+
+#Now we generate the bootstrapped tree, -b command followed by number of bootstrap cycles
+iqtree -b 1000 -s all_genomes.aln
+
+#This generates our bootstrapped tree
+
+```
+
+**R Script Code**
+
+```R
+#From here we simply load the tree into R, and display it as we see fit
+library(ape)
+
+portfolio.tree <- read.tree(file="all_genomes.aln.treefile")
+
+#Can be a bit squished - best results came fullscreen slightly zoomed out
+plot.phylo(portfolio.tree, show.node.label = TRUE, tip.color="orange", node.color='darkblue', no.margin=TRUE)
+
+#This generates our only figure for this week
+```
+
+### Week 6 Figure 1
+![Week 6 Figure 1](Figures\Week6\Figure1.png)
+
+Description here
+
+
+
+## Week 8 Portfolio
+
+
+IN PROGRESS - kinda a disaster at the moment
+
+
+## Week 9 Portfolio
+*Week 9 has 2 parts A, and B*
+Part A - Chose Combination 2 - ``500k_Cutoff1.txt`` and taxonomic classification ``__Rhodobacter``
+Part B - Chose Combination 2 - ``500k_Cutoff1.txt``
+
+> Part A involves trimming out the constant part of the taxonomic name to reduce the length of classification name and visualising the data in a heatmap
+
+> Part B Involves visualising the chosen file in an UpSet plot, to show how the number of times a taxonomic result varies bbased on searching algorithm and database
+
+There is no shell script requirement for this portfolio - All R based
+
+**R Script Code**
+
+```R
+library(UpSetR)
+library(pheatmap)
+library(data.table)
+
+#Firstly we will do Part A
+
+#Read in the tab delimited data file
+cutDataFile <- read.delim("500k_Cutoff1.txt", header=TRUE, sep="\t")
+#Remove columns
+cutDataFileRemovedCols <- subset(cutDataFile, select=-c(averVal, COV))
+cutDataFileRemovedCols_noUC <- cutDataFileRemovedCols[-c(1), ]
+
+rownames(cutDataFileRemovedCols_noUC) <- cutDataFileRemovedCols_noUC[,7]
+cutDataFileRemovedCols_noUC2 <- cutDataFileRemovedCols_noUC[,-7]
+#Show only taxa that contain Rhodobacter
+onlyTaxaOfInterest <- subset(cutDataFileRemovedCols_noUC2, rownames(cutDataFileRemovedCols_noUC2) %like% "__Rhodobacter__")
+
+##this line gsubs out the prefix
+rownames(onlyTaxaOfInterest) <- gsub("root__cellular__organisms__Bacteria__Proteobacteria__Alphaproteobacteria__Rhodobacterales__Rhodobacteraceae__Rhodobacter__", "", rownames(onlyTaxaOfInterest))
+
+#Generate heatmap - Figure 1
+pheatmap(onlyTaxaOfInterest)
+
+
+#Now onto Part B
+
+#Removes unwanted columns from our dataset
+cutDataFileUpSet <- subset(cutDataFile, select=-c(averVal, COV, taxonomy))
+#Removes non-0 values to 1
+cutDataFileUpSet[cutDataFileUpSet != 0] <- 1
+#Add our taxonomy back into the set
+cutDataFileUpSetTaxa <- cbind(cutDataFileUpSet, cutDataFile$taxonomy)
+colnames(cutDataFileUpSetTaxa)[7] <- "taxonomy"
+
+#Draw plot - Figure 2
+setOrder = c("Greedy_Nr", "Greedy_NrEuk", "Greedy_RefOnly", "MEM_Nr", "MEM_NrEuk", "MEM_RefOnly")
+upset(cutDataFileUpSetTaxa, order.by = "freq", decreasing = TRUE,sets = setOrder, keep.order = TRUE)
+
+```
+
+### Week 9 Figure 1
+![Week 9 Figure 1](Figures\Week9\Figure1.png)
+
+
+### Week 9 Figure 2
+![Week 9 Figure 2](Figures\Week9\Figure2.png)
 
 
