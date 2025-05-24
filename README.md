@@ -304,6 +304,7 @@ Description
 ## Week 10 Portfoliio
 *Week 10 again has 2 parts, working with the portfolioPhy phyloseq object we made at the end of the lab, making a new phyloseq object subsetted at the taxonomic level of kingdom, containing only Bacteria*
 > Part A involves plotting alpha diversity values with ``Sample`` on the x axis, colouring by ``env_broad_scale`` with the ``Shannon`` diversity measure. And a second plot, plotting the values for ``env_local_scale`` on the x-axis colouring by ``env_broad_scale`` with both the ``Shannon`` and ``Simpson`` diversity measures.
+
 > Part B involves plotting an single barplot, according to the following
 - Make a new object of the top 100 taxa
 - Transform the sample conts to a fraction incorporating the code ``function(OTU OTU/sum(OTU))
