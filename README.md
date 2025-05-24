@@ -36,7 +36,7 @@ plot(sort(montanaData$'gc content'), sort(montanaData$quality), ty="l", col="pur
 ### Week 4 Figure 1
 ![Week 4 Figure 1](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week4/Figure1.png)
 
-The correlation test in this figure of -0.06 indicates a slightly negative relationship, but it is not nonlinear, as one increases, the other does tend to decrease slightly. This is reinforced by our sub 0.05 p-value, marking the correlation as statistically significant.
+The correlation test in this figure of -0.06 indicates a barely negative relationship, but it is present, as one increases, the other does tend to decrease slightly. This is reinforced by our sub 0.05 p-value, marking the correlation as statistically significant.
 
 ### Week 4 Figure 2
 ![Week 4 Figure 2](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week4/Figure2.png)
@@ -79,7 +79,7 @@ dev.off() #Switch off panel - resets effectively
 ### Week 5 Figure 1
 ![Week 5 Figure 1](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week5/Figure1.png)
 
-Description here
+The average depth is an insufficient figure to make a conclusion on, but for initial notes, the montana sequences have far greater sequence depth than the kwazulu-natal sequences, which do not appear to have sufficient sequence depth in comparison
 
 ### Week 5 Figure 2
 ![Week 5 Figure 2](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week5/Figure2.png)
