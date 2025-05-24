@@ -147,11 +147,44 @@ There is no shell script requirement for this portfolio - All R based
 ##PART A
 #Copy track to new variable to avoid damaging original var
 trackCopy <- track
-#Show dimensions to ensure its the same, should have 6 columns and 20 rows
-dim(track)
-dim(trackCopy)
+#Proportionate data using prop.table
+trackCopy <- prop.table(trackCopy)
 
-#PART A STILL NEEDS DOING
+#Now copy sample names to new column at the end and make row name numeric
+trackCopy2 <- cbind(trackCopy, sample.names)
+
+rownames(trackCopy2) <- 1:nrow(trackCopy2)
+
+#Because i'm using a ggplot multi line plot - from R-Graph gallery - need to have a differently structured dataframe, so need to change how data is oriented, need to shrink it down to 3 columns, effectively pivot it, only way i could think to do this was this way - really really messy
+outputFrame <- data.frame() #Make new dataframe to fill
+for (row in 1:nrow(as.matrix(trackCopy2))) {#Iterate through rows
+    #print(trackCopy2[row,7])
+    appendSample <- trackCopy2[row,7]#Grab sample name
+    for(col in 1:6) {#Iterate through only the first 6 columns (we dont want to grab the sample names)
+      appendStage <-colnames(trackCopy2)[col] #Grab stage name
+      #print(trackCopy2[row,col])
+      appendValue <-trackCopy2[row,col] #Grab value
+      #print(colnames(trackCopy2)[col])
+      appendList <- list(appendSample, appendStage, appendValue) #Create list
+      outputFrame <- rbind(outputFrame, appendList)#Bind list to dataframe as new row
+      
+    }
+}
+#Rename columns again
+colnames(outputFrame) <- c("sample.names", "stage", "value")
+
+#Do ggplot line plot, with stage on the x axis, and vlaues on y axis, coloured by samples
+ggplot(outputFrame, aes(x = stage, y = value, group = sample.names, color = sample.names)) +
+  geom_line(alpha = 0.7) +
+  geom_point(size = 1) +
+  theme_light() +
+  labs(
+    title = "Proportionated Track Analysis",
+    x = "Processing Stage",
+    y = "Read Count",
+    color = "Sample Name"
+  )#Figure 1
+
 
 ##PART B
 library(FastaUtils)
