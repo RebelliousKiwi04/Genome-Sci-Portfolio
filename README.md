@@ -134,9 +134,10 @@ Description here
 
 
 
-## Week 8 Portfolio - IN PROGRESS
+## Week 8 Portfolio
 *Week 8 has 2 parts to it, parts A and B*
 > Part A involves the ``track`` dataframe, the task is to plot the dataframe in a way that shows whether the steps involved in rpocessing are adversely affecting one or more samples.
+
 > Part B is to generate a sequence logo. Do this by generating a new fasta file of 50 sequences chosen at random from the reference fasta ``rdp_train_set_14.fa``, searching with ```msa`` and ``seqLogo`` to find a region of ~100-150bp in length that shows a high degree of sequence similarity and variability, then plot that region with the ``msa`` package showing the alignment and sequence logo.
 
 There is no shell script requirement for this portfolio - All R based
@@ -155,7 +156,8 @@ trackCopy2 <- cbind(trackCopy, sample.names)
 
 rownames(trackCopy2) <- 1:nrow(trackCopy2)
 
-#Because i'm using a ggplot multi line plot - from R-Graph gallery - need to have a differently structured dataframe, so need to change how data is oriented, need to shrink it down to 3 columns, effectively pivot it, only way i could think to do this was this way - really really messy
+#Because i'm using a ggplot multi line plot - from R-Graph gallery - need to have a differently structured dataframe, so need to change how data is oriented, need to shrink it down to 3 columns
+#effectively pivot it, only way i could think to do this was this way - really really messy, alternative was a library I found, but but loop was easier to read
 outputFrame <- data.frame() #Make new dataframe to fill
 for (row in 1:nrow(as.matrix(trackCopy2))) {#Iterate through rows
     #print(trackCopy2[row,7])
