@@ -88,6 +88,7 @@ Our average results are supported by our graph here, which shows much higher seq
 
 ### Week 5 Figure 3
 ![Week 5 Figure 3](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week5/Figure3.png)
+
 This plot limits the y-axis scale of the kwazulu-natal panel to make comparisons of the plots much easier
 
 
