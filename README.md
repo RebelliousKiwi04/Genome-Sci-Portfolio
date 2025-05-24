@@ -84,7 +84,11 @@ The average depth is an insufficient figure to make a conclusion on, but for ini
 ### Week 5 Figure 2
 ![Week 5 Figure 2](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week5/Figure2.png)
 
-Description here
+Our average results are supported by our graph here, which shows much higher sequence depth on average for our montana sequence reads. However it is important to note that the montana sequences have a much lower peak depth than the kwazulu-natal sequences, which have a peak depth of 2500. The kwazulu-natal sequeces however have a much lower average sequence depth, but the scales make the graphs difficult to compare.
+
+### Week 5 Figure 3
+![Week 5 Figure 3](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week5/Figure3.png)
+This plot limits the y-axis scale of the kwazulu-natal panel to make comparisons of the plots much easier
 
 
 ## Week 6 Portfolio
