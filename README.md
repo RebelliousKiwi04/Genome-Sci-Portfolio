@@ -36,12 +36,13 @@ plot(sort(montanaData$'gc content'), sort(montanaData$quality), ty="l", col="pur
 ### Week 4 Figure 1
 ![Week 4 Figure 1](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week4/Figure1.png)
 
-Description text here
+The correlation test in this figure of -0.06 indicates a slightly negative relationship, but it is not nonlinear, as one increases, the other does tend to decrease slightly. This is reinforced by our sub 0.05 p-value, marking the correlation as statistically significant.
 
 ### Week 4 Figure 2
 ![Week 4 Figure 2](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week4/Figure2.png)
 
-Description text here
+Our conclusions from figure 1 are further supported when analysing the graph, although it doesn't appear that way, this is because the seqkit quality scores are Phred quality scores, which are an ASCII quality score format, so therefore higher is not better, but worse. This indicates that the graph actually shows a negative relationship between GC content and quality for the montana sequence sample. Supporting our initial conclusion from figure 1, that as one increases, the other does tend to decrease.
+
 
 ## Week 5 Portfolio
 *Question is to find a method to visualise read depth to determind if there is sufficient depth across the genome and note*
