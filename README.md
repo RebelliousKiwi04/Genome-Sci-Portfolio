@@ -84,12 +84,12 @@ The average depth is an insufficient figure to make a conclusion on, but for ini
 ### Week 5 Figure 2
 ![Week 5 Figure 2](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week5/Figure2.png)
 
-Our average results are supported by our graph here, which shows much higher sequence depth on average for our montana sequence reads. However it is important to note that the montana sequences have a much lower peak depth than the kwazulu-natal sequences, which have a peak depth of 2500. The kwazulu-natal sequeces however have a much lower average sequence depth, but the scales make the graphs difficult to compare.
+Our average results are supported by our graph here, which shows much higher sequence depth on average for our montana sequence reads. However it is important to note that the montana sequences have a much lower peak depth than the kwazulu-natal sequences, which have a peak depth of 2500. The kwazulu-natal sequeces however have a much lower average sequence depth, but the scales on the kwazulu graph are scaled significantly higher, making the graphs difficult to compare.
 
 ### Week 5 Figure 3
 ![Week 5 Figure 3](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week5/Figure3.png)
 
-This plot limits the y-axis scale of the kwazulu-natal panel to make comparisons of the plots much easier
+This plot limits the y-axis scale of the kwazulu-natal panel to make comparisons of the plots much easier, however this has made it easier to determine that the kwazulu-natal sequences to not have sufficient sequence depth, especially in comparison to the montana sequences. The kwazulu-natal reads to have much higher peak sequencing depth, and there are more of them, but the average sequencing depth is significantly lower, and this is highly likely to affect any downstream analyses we conduct on these samples. Leading us to come to the final determination that there is sufficient depth on the montana samples, with good spread and a high average depth, but not on the kwazulu-natal sequences.
 
 
 ## Week 6 Portfolio
