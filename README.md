@@ -157,7 +157,7 @@ trackCopy2 <- cbind(trackCopy, sample.names)
 rownames(trackCopy2) <- 1:nrow(trackCopy2)
 
 #Because i'm using a ggplot multi line plot - from R-Graph gallery - need to have a differently structured dataframe, so need to change how data is oriented, need to shrink it down to 3 columns
-#effectively pivot it, only way i could think to do this was this way - really really messy, alternative was a library I found, but but loop was easier to read
+#effectively pivot it, only way i could think to do this was this way - really really messy, alternative was a library I found - declared in AI declaration - I chose to use this method instead
 outputFrame <- data.frame() #Make new dataframe to fill
 for (row in 1:nrow(as.matrix(trackCopy2))) {#Iterate through rows
     #print(trackCopy2[row,7])
@@ -352,5 +352,56 @@ Description
 
 
 ## Week 11 Portfolio
+*Week 11s portfolio requires the calculation of sequence depth for 6 bam files, that then need to be plotted in such a way that the distributions are easy to compare, and thus easy to check for problematic samples*
 
-IN PROGRESS
+**Shell script**
+
+```console
+
+#Shell script side is simple, just getting depth information for the sequences
+
+#UHR Samples
+samtools depth UHR_Rep1.sort.bam > UHR_Rep1.depth.txt
+
+samtools depth UHR_Rep2.sort.bam > UHR_Rep2.depth.txt
+
+samtools depth UHR_Rep3.sort.bam > UHR_Rep3.depth.txt
+
+#HBR Samples
+samtools depth HBR_Rep1.sort.bam > HBR_Rep1.depth.txt
+
+samtools depth HBR_Rep2.sort.bam > HBR_Rep2.depth.txt
+
+samtools depth HBR_Rep3.sort.bam > HBR_Rep3.depth.txt
+
+```
+
+**R Script code**
+
+```R
+
+#First load depth information in as table
+UHR_Rep1 <- read.table(file="UHR_Rep1.depth.txt")
+UHR_Rep2 <- read.table(file="UHR_Rep2.depth.txt")
+UHR_Rep3 <- read.table(file="UHR_Rep3.depth.txt")
+
+HBR_Rep1 <- read.table(file="HBR_Rep1.depth.txt")
+HBR_Rep2 <- read.table(file="HBR_Rep2.depth.txt")
+HBR_Rep3 <- read.table(file="HBR_Rep3.depth.txt")
+
+#Name columns - reference Week 5 - same layout
+colnames(UHR_Rep1) <- c("Contig Name", "Contig Position", "Depth")
+colnames(UHR_Rep2) <- c("Contig Name", "Contig Position", "Depth")
+colnames(UHR_Rep3) <- c("Contig Name", "Contig Position", "Depth")
+
+colnames(HBR_Rep1) <- c("Contig Name", "Contig Position", "Depth")
+colnames(HBR_Rep2) <- c("Contig Name", "Contig Position", "Depth")
+colnames(HBR_Rep3) <- c("Contig Name", "Contig Position", "Depth")
+
+#Just need to decide on final plotting format
+#Either hist,density, or violin
+#All have their problems, could go with all 3
+
+
+
+```
