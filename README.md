@@ -134,10 +134,72 @@ Description here
 
 
 
-## Week 8 Portfolio
+## Week 8 Portfolio - IN PROGRESS
+*Week 8 has 2 parts to it, parts A and B*
+> Part A involves the ``track`` dataframe, the task is to plot the dataframe in a way that shows whether the steps involved in rpocessing are adversely affecting one or more samples.
+> Part B is to generate a sequence logo. Do this by generating a new fasta file of 50 sequences chosen at random from the reference fasta ``rdp_train_set_14.fa``, searching with ```msa`` and ``seqLogo`` to find a region of ~100-150bp in length that shows a high degree of sequence similarity and variability, then plot that region with the ``msa`` package showing the alignment and sequence logo.
 
+There is no shell script requirement for this portfolio - All R based
 
-IN PROGRESS - kinda a disaster at the moment
+**R Script Code**
+
+```R
+##PART A
+#Copy track to new variable to avoid damaging original var
+trackCopy <- track
+#Show dimensions to ensure its the same, should have 6 columns and 20 rows
+dim(track)
+dim(trackCopy)
+
+#PART A STILL NEEDS DOING
+
+##PART B
+library(FastaUtils)
+library(msa)
+library(seqLogo)
+
+#This gets us our random 50 sequences to a  new fasta file - sub50_rdpset.fa
+fasta.sample(infile="rdp_train_set_14.fa", nseq=50, file.out="sub50_rdpset.fa")
+
+#Create variable from subset
+seqs16S <- readDNAStringSet("sub50_rdpset.fa")
+
+#Run sequence alignment
+my16SAlignment <- msa(seqs16S, "ClustalOmega")
+
+#Print sequence to pdf for region selection
+msaPrettyPrint(my16SAlignment, output="pdf", showNames="none", file = "ourSet.pdf",
+               showLogo="top", askForOverwrite=FALSE, verbose=FALSE)
+               #Figure 2 comes from here
+
+#Identified region of high similarity and variability is 1000-1150
+#This creates new object  using only positions 1000-1150
+smallAlign <- DNAStringSet(my16SAlignment, start=1000, end=1150)
+#Creates consensus matrix usingn seqLogo
+posWeightMat <- consensusMatrix(smallAlign, baseOnly=TRUE)
+#Remove other row
+rowname_to_remove <- ("other")
+posWeightMat2 <- posWeightMat[!(row.names(posWeightMat) %in% rowname_to_remove),]
+#proportionate and make seqLogo
+posWeightMat2 <- prop.table(posWeightMat2, 2)
+p <- makePWM(posWeightMat2)
+seqLogo(p, xfontsize = 8)#SeqLogo is Figure 3
+
+```
+### Week 8 Figure 1
+![Week 8 Figure 1](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week8/Figure1.png)
+
+Description here
+
+### Week 8 Figure 2
+![Week 8 Figure 2](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week8/Figure2.png)
+
+Description here
+
+### Week 8 Figure 3
+![Week 8 Figure 3](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week8/Figure3.png)
+
+Description here
 
 
 ## Week 9 Portfolio
