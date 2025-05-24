@@ -136,8 +136,10 @@ plot.phylo(portfolio.tree, show.node.label = TRUE, tip.color="orange", node.colo
 ### Week 6 Figure 1
 ![Week 6 Figure 1](https://rebelliouskiwi04.github.io/Genome-Sci-Portfolio/Figures/Week6/Figure1.png)
 
-Description here
-
+Above is the bootstrapped phylogenetic tree for our samples (a little squished) the names appear orange, and the node labels are in black.
+The node labels (numbers in black) are percentage numbers from 1-100 representing the confidence or support in that node. Indicating how reliable the node's placement in that position on the tree is. 
+In this case it shows 100% confiedence in its placement of our kwazulu and montana samples, but after 1000 iterations it has minimal confidence in many of the other branch placements, with several having 0% support.
+If I was to try this tree again with less bootstrap cycles, potentially 100-150 i might get a more confident result, but that wouldn't necessarily however be an accurate result either.
 
 
 ## Week 8 Portfolio
